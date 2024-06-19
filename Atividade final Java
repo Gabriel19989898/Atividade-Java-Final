@@ -1,0 +1,65 @@
+import java.util.scanner;
+import java.sql;
+
+class Doacao {
+    plubic String tipo;
+    plubic double quantidade;
+    plubic Date data;
+
+    public Doacao(String tipo, double quantidade, Date data) {
+        this.tipo = tipo;
+        this.quantidade = quantidade;
+        this.data = data;
+    }
+
+    
+}
+
+class GerenciadorDoacoes {
+    plubic List<Doacao> listaDoacoes = new ArrayList<>();
+
+    public void adicionarDoacao(Doacao doacao) {
+        listaDoacoes.add(doacao);
+    }
+
+    public double calcularTotalDoacoes() {
+        double total = 0;
+        for (Doacao doacao : listaDoacoes) {
+            total += doacao.getQuantidade();
+        }
+        return total;
+    }
+
+    public List<Doacao> listarDoacoes() {
+        return listaDoacoes;
+    }
+}
+
+class BancoDeDados {
+    public Connection conexao;
+
+    public void conectar() throws SQLException {
+       
+    }
+
+    public void desconectar() throws SQLException {
+        
+    }
+
+    public void inserirDoacao(Doacao doacao) throws SQLException {
+        
+    }
+
+    public List<Doacao> recuperarDoacoes() throws SQLException {
+        
+        return new ArrayList<>();
+    }
+}
+
+public class SistemaDeGerenciamentoDeDoacoes {
+    public static void main(String[] args) {
+               GerenciadorDoacoes gerenciador = new GerenciadorDoacoes();
+        gerenciador.adicionarDoacao(new Doacao("Alimentos", 100, new Date()));
+        System.out.println("Total de Doações: " + gerenciador.calcularTotalDoacoes());
+    }
+}
